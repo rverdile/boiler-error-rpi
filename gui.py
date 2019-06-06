@@ -16,7 +16,7 @@ class gui(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 
         self.title_font = tkfont.Font(family='Helvetica', size=18, weight="bold")
-        self.geometry("480x320")
+        self.geometry("464x320")
         self.title("Settings")
         # the container is where we'll stack a bunch of frames
         # on top of each other, then the one we want visible
@@ -95,7 +95,7 @@ class PhoneNumbers(tk.Frame):
         numbersText = [""]*100 #preallocate numbers list
 
         label = tk.Label(self, text="Numbers on list (first 8)", font="Helvetica 14 bold",bg=maroon,fg="white")
-        label.pack(side="top",pady=103)
+        label.pack(side="top",pady=91)
 
         for i in range(len(numbers)):
             numbersText[i] = numbers[i]
@@ -104,7 +104,7 @@ class PhoneNumbers(tk.Frame):
         body=[]
         for i in range(2):
             for j in range(4):
-                body.append(tk.Label(self,text=numbersText[index],height=1,width=20,bg=maroon,font=("Helvetica 14"),fg="white"))
+                body.append(tk.Label(self,text=numbersText[index],height=1,width=30,bg=maroon,font=("Helvetica 10"),fg="white"))
                 body[index].place(relx=(.058+(i-(i*.53))),rely=(.43+(j-(j*.88))))
                 index=index+1
 
@@ -116,11 +116,11 @@ class PhoneNumbers(tk.Frame):
         buttonAdd=tk.Button(self,text="Add Number",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
                             activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'phone_numbers.txt'),
                             highlightbackground=black_maroon)
-        buttonAdd.place(height=40,width=210,relx=0.05,rely=.15)
+        buttonAdd.place(height=40,width=210,relx=0.05,rely=.18)
         buttonRem=tk.Button(self,text="Remove Number",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
                             activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'phone_numbers.txt'),
                             highlightbackground=black_maroon)
-        buttonRem.place(height=40,width=210,relx=0.51,rely=.15)
+        buttonRem.place(height=40,width=210,relx=0.51,rely=.18)
 
         #back to start page
         button5 = tk.Button(self,text="Back to Start Page",bg=maroon,activebackground=maroon_highlight,font="Helvetica 9",fg="white",
@@ -138,7 +138,7 @@ class EmailList(tk.Frame):
         emailsText = [""]*100 #preallocate email list
 
         label = tk.Label(self, text="Emails on list (first 8)", font="Helvetica 14 bold",bg=maroon,fg="white")
-        label.pack(side="top",pady=103)
+        label.pack(side="top",pady=91)
 
         for i in range(len(emails)):
             emailsText[i] = emails[i]
@@ -147,7 +147,7 @@ class EmailList(tk.Frame):
         body=[]
         for i in range(2):
             for j in range(4):
-                body.append(tk.Label(self,text=emailsText[index],height=1,width=20,bg=maroon,font=("Helvetica 14"),fg="white"))
+                body.append(tk.Label(self,text=emailsText[index],height=1,width=30,bg=maroon,font=("Helvetica 10"),fg="white"))
                 body[index].place(relx=(.058+(i-(i*.53))),rely=(.43+(j-(j*.88))))
                 index=index+1
 
@@ -159,11 +159,11 @@ class EmailList(tk.Frame):
         buttonAdd=tk.Button(self,text="Add email",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
                             activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'emails.txt'),
                             highlightbackground=black_maroon)
-        buttonAdd.place(height=40,width=210,relx=0.05,rely=.15)
+        buttonAdd.place(height=40,width=210,relx=0.05,rely=.18)
         buttonRem=tk.Button(self,text="Remove email",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
                             activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'emails.txt'),
                             highlightbackground=black_maroon)
-        buttonRem.place(height=40,width=210,relx=0.51,rely=.15)
+        buttonRem.place(height=40,width=210,relx=0.51,rely=.18)
 
         #back to start page
         button5 = tk.Button(self,text="Back to Start Page",bg=maroon,activebackground=maroon_highlight,font="Helvetica 9",fg="white",
@@ -177,53 +177,53 @@ class ChangeAlertMessage(tk.Frame):
         self.controller = controller
 
         #update location 
-        entry0 = tk.Entry(self,font="Helvetica 16")
+        entry0 = tk.Entry(self,font="Helvetica 13")
         entry0.place(height=30,width=440,relx=.05,rely=.01)
 
         button0 = tk.Button(self,text="Update Location",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.updateFile(entry0.get(),"location.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry0.get(),"location.txt"),
                             highlightbackground=black_maroon)
-        button0.place(height=30,width=150,relx=.05,rely=.11)
+        button0.place(height=21,width=150,relx=.05,rely=.12)
 
         #update error1
-        entry1 = tk.Entry(self,font="Helvetica 16")
+        entry1 = tk.Entry(self,font="Helvetica 13")
         entry1.place(height=30,width=440,relx=.05,rely=.21)
 
         button1 = tk.Button(self,text="Update Error 1",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.updateFile(entry1.get(),"error_1.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry1.get(),"error_1.txt"),
                             highlightbackground=black_maroon)
-        button1.place(height=30,width=150,relx=.05,rely=.31)
+        button1.place(height=21,width=150,relx=.05,rely=.32)
 
         #update error2
-        entry2 = tk.Entry(self,font="Helvetica 16")
+        entry2 = tk.Entry(self,font="Helvetica 13")
         entry2.place(height=30,width=440,relx=.05,rely=.41)
 
         button2 = tk.Button(self,text="Update Error 2",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.updateFile(entry2.get(),"error_2.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry2.get(),"error_2.txt"),
                             highlightbackground=black_maroon)
-        button2.place(height=30,width=150,relx=.05,rely=.51)
+        button2.place(height=21,width=150,relx=.05,rely=.52)
 
         #update error3
-        entry3 = tk.Entry(self,font="Helvetica 16")
+        entry3 = tk.Entry(self,font="Helvetica 13")
         entry3.place(height=30,width=440,relx=.05,rely=.61)
 
         button3 = tk.Button(self,text="Update Error 3",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.updateFile(entry3.get(),"error_3.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry3.get(),"error_3.txt"),
                             highlightbackground=black_maroon)
-        button3.place(height=30,width=150,relx=.05,rely=.71)
+        button3.place(height=21,width=150,relx=.05,rely=.72)
 
         #update error4
-        entry4 = tk.Entry(self,font="Helvetica 16")
+        entry4 = tk.Entry(self,font="Helvetica 13")
         entry4.place(height=30,width=440,relx=.05,rely=.81)
 
         button4 = tk.Button(self,text="Update Error 4",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.updateFile(entry4.get(),"error_4.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry4.get(),"error_4.txt"),
                             highlightbackground=black_maroon)
-        button4.place(height=30,width=150,relx=.05,rely=.91)
+        button4.place(height=21,width=150,relx=.05,rely=.92)
 
         #back to start page
         button5 = tk.Button(self,text="Back to Start Page",bg=maroon,activebackground=maroon_highlight,font="Helvetica 9",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  controller.show_frame("StartPage"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  controller.show_frame("StartPage"),
                             highlightbackground=black_maroon)
         button5.place(height=25,width=120,relx=.7,rely=.92)
 
