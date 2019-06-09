@@ -11,9 +11,9 @@ def addString(given,label,filename):
 	f.close()
 	
 	#--update displayed list of strings--#
-	if(filename=='emails.txt'):
+	if(filename=='/home/pi/Alert_System/emails.txt'):
 		string_list = getEmailList()
-	elif(filename=='phone_numbers.txt'):
+	elif(filename=='/home/pi/Alert_System/phone_numbers.txt'):
 		string_list = getPhoneNumbers()
 	updateDisplay(label,string_list)
 
@@ -22,9 +22,9 @@ def delString(given,label,filename):
 	strings = given.split(',') #seperate every string given into list
 	
 	#--update displayed list of strings--#
-	if(filename=='emails.txt'):
+	if(filename=='/home/pi/Alert_System/emails.txt'):
 		string_list = getEmailList()
-	elif(filename=='phone_numbers.txt'):
+	elif(filename=='/home/pi/Alert_System/phone_numbers.txt'):
 		string_list = getPhoneNumbers()
 	
 	length = len(string_list)
@@ -58,7 +58,7 @@ def updateDisplay(label,string_list):
 
 def getAlertMessage(error_list):
 	#get location
-	with open("location.txt",'r') as file:
+	with open("/home/pi/Alert_System/location.txt",'r') as file:
 		location = file.read()
 
 	error_list_final=[0,0,0,0]
@@ -69,20 +69,20 @@ def getAlertMessage(error_list):
 		if(error_list_final[i]):
 			if(i==0):
 				#get error 1
-				with open("error_1.txt",'r') as file:
+				with open("/home/pi/Alert_System/error_1.txt",'r') as file:
 					error_list_final[0] = file.read()
 			elif(i==1):
 				#get error 2
-				with open("error_2.txt",'r') as file:
+				with open("/home/pi/Alert_System/error_2.txt",'r') as file:
 					error_list_final[1] = file.read()
 			elif(i==2):
 				#get error 3
-				with open("error_3.txt",'r') as file:
+				with open("/home/pi/Alert_System/error_3.txt",'r') as file:
 					error_list_final[2] = file.read()
 				
 			elif(i==3):
 				#get error 4
-				with open("error_4.txt",'r') as file:
+				with open("/home/pi/Alert_System/error_4.txt",'r') as file:
 					error_list_final[3] = file.read()
 		else:
 			error_list_final[i] = "$%gAd.2"
@@ -129,7 +129,7 @@ def readBody(file_name):
 
 def getPhoneNumbers():
 #--Returns list of phone numbers--#
-	with open('phone_numbers.txt', 'r') as file:
+	with open('/home/pi/Alert_System/phone_numbers.txt', 'r') as file:
 		phone_numbers = file.readlines()
 
 	#cleaning up the list	
@@ -161,19 +161,19 @@ def sendText(error_list):
 	#sending text
 	for i in range(len(phone_numbers)):
 
-		try:
+		#try:
 			message = client.messages \
     		.create(
          		body= getAlertMessage(error_list),
-         		from_='',
+         		from_="",
          		to=phone_numbers[i]
      		)
      		     		
-		except:
-			f = open('error.txt','a')
+		#except:
+			f = open('/home/pi/Alert_System/error.txt','a')
 			f.write("Cannot send text...."+str(now)+'\n') #--write time of error to text file
 			f.close()
-			print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
+		#	print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#
 #--Functions for dealing with emails and emailing.--#
@@ -181,7 +181,7 @@ def sendText(error_list):
 def getSenderInfo():
 #--Opens info.txt and returns its important data--#
 
-	f = open('info.txt','r') #--opens file to read
+	f = open('/home/pi/Alert_System/info.txt','r') #--opens file to read
 	data = f.readlines()
 	f.close()
 	return data[0],data[1]#--in format: sender_email, sender_email_password
@@ -210,7 +210,7 @@ def sendEmail(error_list):
 		s.close() #--end session
 	
 	except:
-		f = open('error.txt','a')
+		f = open('/home/pi/Alert_System/error.txt','a')
 		f.write("Cannot send email...."+str(now)+'\n') #--write time of error to text file
 		f.close()
 		print("Circuit is open. Cannot send email. May be disconnected from WiFi") #--error
@@ -225,7 +225,7 @@ def getEmailMessage(error_list):
 	#receiver_email = getEmailList
 	
 	#getting subject of email
-	with open('subject.txt') as f:
+	with open('/home/pi/Alert_System/subject.txt') as f:
 		subject = f.read()
 	#getting body of email
 	body = getAlertMessage(error_list)
@@ -240,7 +240,7 @@ def getEmailMessage(error_list):
 
 def getEmailList():	
 	#read from file
-	f = open('emails.txt','r')
+	f = open('/home/pi/Alert_System/emails.txt','r')
 	email_list = f.readlines()
 	#remove newline
 	for i in range(len(email_list)):

@@ -114,11 +114,11 @@ class PhoneNumbers(tk.Frame):
 
         #--Buttons--#
         buttonAdd=tk.Button(self,text="Add Number",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'phone_numbers.txt'),
+                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'/home/pi/Alert_System/phone_numbers.txt'),
                             highlightbackground=black_maroon)
         buttonAdd.place(height=40,width=210,relx=0.05,rely=.18)
         buttonRem=tk.Button(self,text="Remove Number",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'phone_numbers.txt'),
+                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'/home/pi/Alert_System/phone_numbers.txt'),
                             highlightbackground=black_maroon)
         buttonRem.place(height=40,width=210,relx=0.51,rely=.18)
 
@@ -157,11 +157,11 @@ class EmailList(tk.Frame):
 
         #--Buttons--#
         buttonAdd=tk.Button(self,text="Add email",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'emails.txt'),
+                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'/home/pi/Alert_System/emails.txt'),
                             highlightbackground=black_maroon)
         buttonAdd.place(height=40,width=210,relx=0.05,rely=.18)
         buttonRem=tk.Button(self,text="Remove email",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
-                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'emails.txt'),
+                            activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'/home/pi/Alert_System/emails.txt'),
                             highlightbackground=black_maroon)
         buttonRem.place(height=40,width=210,relx=0.51,rely=.18)
 
@@ -181,7 +181,7 @@ class ChangeAlertMessage(tk.Frame):
         entry0.place(height=30,width=440,relx=.05,rely=.01)
 
         button0 = tk.Button(self,text="Update Location",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry0.get(),"location.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry0.get(),"/home/pi/Alert_System/location.txt"),
                             highlightbackground=black_maroon)
         button0.place(height=21,width=150,relx=.05,rely=.12)
 
@@ -190,7 +190,7 @@ class ChangeAlertMessage(tk.Frame):
         entry1.place(height=30,width=440,relx=.05,rely=.21)
 
         button1 = tk.Button(self,text="Update Error 1",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry1.get(),"error_1.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry1.get(),"/home/pi/Alert_System/error_1.txt"),
                             highlightbackground=black_maroon)
         button1.place(height=21,width=150,relx=.05,rely=.32)
 
@@ -199,7 +199,7 @@ class ChangeAlertMessage(tk.Frame):
         entry2.place(height=30,width=440,relx=.05,rely=.41)
 
         button2 = tk.Button(self,text="Update Error 2",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry2.get(),"error_2.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry2.get(),"/home/pi/Alert_System/error_2.txt"),
                             highlightbackground=black_maroon)
         button2.place(height=21,width=150,relx=.05,rely=.52)
 
@@ -208,7 +208,7 @@ class ChangeAlertMessage(tk.Frame):
         entry3.place(height=30,width=440,relx=.05,rely=.61)
 
         button3 = tk.Button(self,text="Update Error 3",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry3.get(),"error_3.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry3.get(),"/home/pi/Alert_System/error_3.txt"),
                             highlightbackground=black_maroon)
         button3.place(height=21,width=150,relx=.05,rely=.72)
 
@@ -217,7 +217,7 @@ class ChangeAlertMessage(tk.Frame):
         entry4.place(height=30,width=440,relx=.05,rely=.81)
 
         button4 = tk.Button(self,text="Update Error 4",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry4.get(),"error_4.txt"),
+                            activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry4.get(),"/home/pi/Alert_System/error_4.txt"),
                             highlightbackground=black_maroon)
         button4.place(height=21,width=150,relx=.05,rely=.92)
 
