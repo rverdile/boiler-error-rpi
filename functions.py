@@ -161,7 +161,7 @@ def sendText(error_list):
 	#sending text
 	for i in range(len(phone_numbers)):
 
-		#try:
+		try:
 			message = client.messages \
     		.create(
          		body= getAlertMessage(error_list),
@@ -169,11 +169,11 @@ def sendText(error_list):
          		to=phone_numbers[i]
      		)
      		     		
-		#except:
+		except:
 			f = open('/home/pi/Alert_System/error.txt','a')
 			f.write("Cannot send text...."+str(now)+'\n') #--write time of error to text file
 			f.close()
-		#	print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
+			print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#
 #--Functions for dealing with emails and emailing.--#
