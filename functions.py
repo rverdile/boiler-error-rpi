@@ -107,16 +107,6 @@ def updateFile(string,filename):
 
 	file.close()
 	
-def sendAlert(error_1,error_2,error_3,error_4):
-#--Checks if any errors exists, if one does, sends alert--#	
-	
-	error_list=[error_1,error_2,error_3,error_4] #if an element of error_list is 1, that means that error has occured
-
-	print("Sending alert message.")
-
-	sendText(error_list)
-	sendEmail(error_list)
-
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#
 #--Functions for dealing with Phone Numbers and Text Messaging--#
 
@@ -142,6 +132,7 @@ def getPhoneNumbers():
 
 def sendText(error_list):
 #--Sends text message using Twilio API--#
+#--returns array of 1's if message is successfully sent and an array of 0's if it isn't--#
 	import os
 	import datetime
 	from twilio.rest import Client
@@ -165,15 +156,18 @@ def sendText(error_list):
 			message = client.messages \
     		.create(
          		body= getAlertMessage(error_list),
-         		from_="",
+         		from_ = "",
          		to=phone_numbers[i]
      		)
+     		
+			return [1,1,1,1]
      		     		
 		except:
 			f = open('/home/pi/Alert_System/error.txt','a')
 			f.write("Cannot send text...."+str(now)+'\n') #--write time of error to text file
 			f.close()
 			print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
+			return [0,0,0,0]
 
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#
 #--Functions for dealing with emails and emailing.--#
@@ -188,6 +182,7 @@ def getSenderInfo():
 
 def sendEmail(error_list):
 #--Sends email--#
+#--returns array of 1's if message is successfully sent and an array of 0's if it isn't--#
 
 	import smtplib
 	import datetime
@@ -208,13 +203,15 @@ def sendEmail(error_list):
 		s.sendmail(sender_email, email_list, message) #--send message
 			
 		s.close() #--end session
+		
+		return [1,1,1,1]
 	
 	except:
 		f = open('/home/pi/Alert_System/error.txt','a')
 		f.write("Cannot send email...."+str(now)+'\n') #--write time of error to text file
 		f.close()
 		print("Circuit is open. Cannot send email. May be disconnected from WiFi") #--error
-
+		return [0,0,0,0]
 	
 
 def getEmailMessage(error_list):
