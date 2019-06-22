@@ -18,9 +18,7 @@ class gui(tk.Tk):
         self.title_font = tkfont.Font(family='Helvetica', size=18, weight="bold")
         self.geometry("464x320")
         self.title("Settings")
-        # the container is where we'll stack a bunch of frames
-        # on top of each other, then the one we want visible
-        # will be raised above the others
+
         container = tk.Frame(self,bg=maroon)
         container.pack(side="top", fill="both", expand=True)
         container.grid_rowconfigure(0, weight=1)
@@ -33,15 +31,12 @@ class gui(tk.Tk):
             self.frames[page_name] = frame
             frame.config(bg=dark_maroon)
 
-            # put all of the pages in the same location;
-            # the one on the top of the stacking order
-            # will be the one that is visible.
+
             frame.grid(row=0, column=0, sticky="nsew")
 
         self.show_frame("StartPage")
 
     def show_frame(self, page_name):
-        '''Show a frame for the given page name'''
         frame = self.frames[page_name]
         frame.tkraise()
 
@@ -83,6 +78,12 @@ class ChangeRecipients(tk.Frame):
         button1.place(height=60,width=235,rely=0.30,relx=0.26)
         button2.place(height=60,width=235,rely=0.55,relx=0.26)
 
+        #back to start page
+        button5 = tk.Button(self,text="Back to Start Page",bg=maroon,activebackground=maroon_highlight,font="Helvetica 9",fg="white",
+                            activeforeground="gray",highlightthickness=4,command=lambda:  controller.show_frame("StartPage"),
+                            highlightbackground=black_maroon)
+        button5.place(height=25,width=120,relx=.7,rely=.92)
+
 
 class PhoneNumbers(tk.Frame):
 
@@ -94,8 +95,14 @@ class PhoneNumbers(tk.Frame):
         numbers = fn.getPhoneNumbers()
         numbersText = [""]*100 #preallocate numbers list
 
-        label = tk.Label(self, text="Numbers on list (first 8)", font="Helvetica 14 bold",bg=maroon,fg="white")
-        label.pack(side="top",pady=91)
+        label = tk.Label(self, text="Numbers on list (first 8)", font="Helvetica 11 bold",bg=maroon,fg="white")
+        label.place(height=21,width=180,relx=.07,rely=.35)
+
+        label2 = tk.Label(self, text="Must use country code.", font="Helvetica 8",bg=maroon,fg="white")
+        label2.place(height=21,width=153,relx=.6,rely=.3)
+
+        label3 = tk.Label(self,text="Example (U.S.): +12223334444",font="Helvetica 8",bg=maroon,fg="white")
+        label3.place(height=21,width=153,relx=.6,rely=.35)
 
         for i in range(len(numbers)):
             numbersText[i] = numbers[i]
@@ -194,6 +201,12 @@ class ChangeAlertMessage(tk.Frame):
                             highlightbackground=black_maroon)
         button1.place(height=21,width=150,relx=.05,rely=.32)
 
+        #N/A
+        button1_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_1.txt"),
+        					highlightbackground=black_maroon)
+        button1_na.place(height=21,width=50,relx=.47,rely=.32)
+
         #update error2
         entry2 = tk.Entry(self,font="Helvetica 13")
         entry2.place(height=30,width=440,relx=.05,rely=.41)
@@ -202,6 +215,12 @@ class ChangeAlertMessage(tk.Frame):
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry2.get(),"/home/pi/Alert_System/error_2.txt"),
                             highlightbackground=black_maroon)
         button2.place(height=21,width=150,relx=.05,rely=.52)
+
+
+        button2_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_2.txt"),
+        					highlightbackground=black_maroon)
+        button2_na.place(height=21,width=50,relx=.47,rely=.52)
 
         #update error3
         entry3 = tk.Entry(self,font="Helvetica 13")
@@ -212,6 +231,12 @@ class ChangeAlertMessage(tk.Frame):
                             highlightbackground=black_maroon)
         button3.place(height=21,width=150,relx=.05,rely=.72)
 
+
+        button3_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_3.txt"),
+        					highlightbackground=black_maroon)
+        button3_na.place(height=21,width=50,relx=.47,rely=.72)
+
         #update error4
         entry4 = tk.Entry(self,font="Helvetica 13")
         entry4.place(height=30,width=440,relx=.05,rely=.81)
@@ -220,6 +245,12 @@ class ChangeAlertMessage(tk.Frame):
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry4.get(),"/home/pi/Alert_System/error_4.txt"),
                             highlightbackground=black_maroon)
         button4.place(height=21,width=150,relx=.05,rely=.92)
+
+
+        button4_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_4.txt"),
+        					highlightbackground=black_maroon)
+        button4_na.place(height=21,width=50,relx=.47,rely=.92)
 
         #back to start page
         button5 = tk.Button(self,text="Back to Start Page",bg=maroon,activebackground=maroon_highlight,font="Helvetica 9",fg="white",
