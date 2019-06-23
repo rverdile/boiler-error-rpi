@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-pos_terminal_1 = 40 #--value of physical pin +circuit is connected to for error 1
+pos_terminal_1 = 40 #--value of physical pin + circuit is connected to for error 1
 pos_terminal_2 = 38
 pos_terminal_3 = 36
 pos_terminal_4 = 32
@@ -62,11 +62,9 @@ def run():
 		error_email,text_sent,email_sent = checkPins(error_email,text_sent,email_sent)
 		
 		if 1 in error_text or 0 in text_sent:
-			print("made it")
 			sleep(1)
 			text_sent=fn.sendText(error_text)
 			if(text_sent==0):
-				print("hello")
 			for i in range(4):
 				error_text[i] = 2
 				

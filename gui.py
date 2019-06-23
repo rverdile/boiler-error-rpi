@@ -95,14 +95,8 @@ class PhoneNumbers(tk.Frame):
         numbers = fn.getPhoneNumbers()
         numbersText = [""]*100 #preallocate numbers list
 
-        label = tk.Label(self, text="Numbers on list (first 8)", font="Helvetica 11 bold",bg=maroon,fg="white")
-        label.place(height=21,width=180,relx=.07,rely=.35)
-
-        label2 = tk.Label(self, text="Must use country code.", font="Helvetica 8",bg=maroon,fg="white")
-        label2.place(height=21,width=153,relx=.6,rely=.3)
-
-        label3 = tk.Label(self,text="Example (U.S.): +12223334444",font="Helvetica 8",bg=maroon,fg="white")
-        label3.place(height=21,width=153,relx=.6,rely=.35)
+        label = tk.Label(self, text="Numbers on list (first 8)        Example (U.S.): +12223334444", font="Helvetica 11 bold",bg=maroon,fg="white")
+        label.place(height=17,width=420,relx=.06,rely=.35)
 
         for i in range(len(numbers)):
             numbersText[i] = numbers[i]
@@ -124,7 +118,7 @@ class PhoneNumbers(tk.Frame):
                             activeforeground="gray",highlightthickness=4,command=lambda:  fn.addString(entry.get(),body,'/home/pi/Alert_System/phone_numbers.txt'),
                             highlightbackground=black_maroon)
         buttonAdd.place(height=40,width=210,relx=0.05,rely=.18)
-        buttonRem=tk.Button(self,text="Remove Number",bg=maroon,activebackground=maroon_highlight,font="Helvetica 20",fg="white",
+        buttonRem=tk.Button(self,text="Remove Number",bg=maroon,activebackground=maroon_highlight,font="Helvetica 19",fg="white",
                             activeforeground="gray",highlightthickness=4,command=lambda:  fn.delString(entry.get(),body,'/home/pi/Alert_System/phone_numbers.txt'),
                             highlightbackground=black_maroon)
         buttonRem.place(height=40,width=210,relx=0.51,rely=.18)
