@@ -95,8 +95,8 @@ class PhoneNumbers(tk.Frame):
         numbers = fn.getPhoneNumbers()
         numbersText = [""]*100 #preallocate numbers list
 
-        label = tk.Label(self, text="Numbers on list (first 8)        Example (U.S.): +12223334444", font="Helvetica 11 bold",bg=maroon,fg="white")
-        label.place(height=17,width=420,relx=.06,rely=.35)
+        label = tk.Label(self, text="Numbers on list (first 8)               Example (U.S.): +12223334444", font="Helvetica 11 bold",bg=maroon,fg="white")
+        label.place(height=17,width=435,relx=.06,rely=.35)
 
         for i in range(len(numbers)):
             numbersText[i] = numbers[i]
@@ -106,7 +106,7 @@ class PhoneNumbers(tk.Frame):
         for i in range(2):
             for j in range(4):
                 body.append(tk.Label(self,text=numbersText[index],height=1,width=30,bg=maroon,font=("Helvetica 10"),fg="white"))
-                body[index].place(relx=(.058+(i-(i*.53))),rely=(.43+(j-(j*.88))))
+                body[index].place(relx=(.058+(i-(i*.53))),rely=(.46+(j-(j*.88))))
                 index=index+1
 
         #--entry--#
@@ -138,8 +138,8 @@ class EmailList(tk.Frame):
         emails = fn.getEmailList()
         emailsText = [""]*100 #preallocate email list
 
-        label = tk.Label(self, text="Emails on list (first 8)", font="Helvetica 14 bold",bg=maroon,fg="white")
-        label.pack(side="top",pady=91)
+        label = tk.Label(self, text="Emails on list (first 8)", font="Helvetica 12 bold",bg=maroon,fg="white")
+        label.pack(side="top",pady=87)
 
         for i in range(len(emails)):
             emailsText[i] = emails[i]
@@ -179,7 +179,7 @@ class ChangeAlertMessage(tk.Frame):
 
         #update location 
         entry0 = tk.Entry(self,font="Helvetica 13")
-        entry0.place(height=30,width=440,relx=.05,rely=.01)
+        entry0.place(height=27,width=440,relx=.05,rely=.01)
 
         button0 = tk.Button(self,text="Update Location",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry0.get(),"/home/pi/Alert_System/location.txt"),
@@ -188,7 +188,7 @@ class ChangeAlertMessage(tk.Frame):
 
         #update error1
         entry1 = tk.Entry(self,font="Helvetica 13")
-        entry1.place(height=30,width=440,relx=.05,rely=.21)
+        entry1.place(height=27,width=440,relx=.05,rely=.21)
 
         button1 = tk.Button(self,text="Update Error 1",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry1.get(),"/home/pi/Alert_System/error_1.txt"),
@@ -203,7 +203,7 @@ class ChangeAlertMessage(tk.Frame):
 
         #update error2
         entry2 = tk.Entry(self,font="Helvetica 13")
-        entry2.place(height=30,width=440,relx=.05,rely=.41)
+        entry2.place(height=27,width=440,relx=.05,rely=.41)
 
         button2 = tk.Button(self,text="Update Error 2",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry2.get(),"/home/pi/Alert_System/error_2.txt"),
@@ -218,7 +218,7 @@ class ChangeAlertMessage(tk.Frame):
 
         #update error3
         entry3 = tk.Entry(self,font="Helvetica 13")
-        entry3.place(height=30,width=440,relx=.05,rely=.61)
+        entry3.place(height=27,width=440,relx=.05,rely=.61)
 
         button3 = tk.Button(self,text="Update Error 3",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry3.get(),"/home/pi/Alert_System/error_3.txt"),
@@ -233,7 +233,7 @@ class ChangeAlertMessage(tk.Frame):
 
         #update error4
         entry4 = tk.Entry(self,font="Helvetica 13")
-        entry4.place(height=30,width=440,relx=.05,rely=.81)
+        entry4.place(height=27,width=440,relx=.05,rely=.81)
 
         button4 = tk.Button(self,text="Update Error 4",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
                             activeforeground="gray",highlightthickness=2,command=lambda:  fn.updateFile(entry4.get(),"/home/pi/Alert_System/error_4.txt"),

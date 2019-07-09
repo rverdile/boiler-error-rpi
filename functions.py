@@ -66,7 +66,7 @@ def getAlertMessage(error_list):
 		error_list_final[i] = error_list[i]
 		
 	for i in range(4):
-		if(error_list_final[i]):
+		if(error_list_final[i]==1):
 			if(i==0):
 				#get error 1
 				with open("/home/pi/Alert_System/error_1.txt",'r') as file:

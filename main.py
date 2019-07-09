@@ -62,17 +62,20 @@ def run():
 		error_email,text_sent,email_sent = checkPins(error_email,text_sent,email_sent)
 		
 		if 1 in error_text or 0 in text_sent:
-			sleep(1)
-			text_sent=fn.sendText(error_text)
-			if(text_sent==0):
-			for i in range(4):
-				error_text[i] = 2
+			sleep(5)
+			error_text,text_sent,email_sent = checkPins(error_text,text_sent,email_sent)
+			if 1 in error_text or 0 in text_sent:
+				text_sent=fn.sendText(error_text)
+				for i in range(4):
+					error_text[i] = 2
 				
 		if 1 in error_email or 0 in email_sent:
-			sleep(1)
-			email_sent=fn.sendEmail(error_email)
-			for i in range(4):
-				error_email[i] = 2
+			sleep(5)
+			error_email,text_sent,email_sent = checkPins(error_email,text_sent,email_sent)
+			if 1 in error_email or 0 in email_sent:
+				email_sent=fn.sendEmail(error_email)
+				for i in range(4):
+					error_email[i] = 2
 		
 def close():
 	GPIO.cleanup()
