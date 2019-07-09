@@ -197,7 +197,7 @@ class ChangeAlertMessage(tk.Frame):
 
         #N/A
         button1_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_1.txt"),
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","/home/pi/Alert_System/error_1.txt"),
         					highlightbackground=black_maroon)
         button1_na.place(height=21,width=50,relx=.47,rely=.32)
 
@@ -212,7 +212,7 @@ class ChangeAlertMessage(tk.Frame):
 
 
         button2_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_2.txt"),
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","/home/pi/Alert_System/error_2.txt"),
         					highlightbackground=black_maroon)
         button2_na.place(height=21,width=50,relx=.47,rely=.52)
 
@@ -227,7 +227,7 @@ class ChangeAlertMessage(tk.Frame):
 
 
         button3_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_3.txt"),
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","/home/pi/Alert_System/error_3.txt"),
         					highlightbackground=black_maroon)
         button3_na.place(height=21,width=50,relx=.47,rely=.72)
 
@@ -242,7 +242,7 @@ class ChangeAlertMessage(tk.Frame):
 
 
         button4_na = tk.Button(self,text="N/A",bg=maroon,activebackground=maroon_highlight,font="Helvetica 12",fg="white",
-        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","error_4.txt"),
+        					activeforeground="gray",highlightthickness=2,command=lambda: fn.updateFile("$%gAd.2","/home/pi/Alert_System/error_4.txt"),
         					highlightbackground=black_maroon)
         button4_na.place(height=21,width=50,relx=.47,rely=.92)
 
