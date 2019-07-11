@@ -110,7 +110,7 @@ class PhoneNumbers(tk.Frame):
                 index=index+1
 
         #--entry--#
-        entry = tk.Entry(self,font="Helvetica 28")
+        entry = tk.Entry(self,font="Helvetica 25")
         entry.place(height=40,width=440,relx=.05,rely=.02)
 
         #--Buttons--#
@@ -153,7 +153,7 @@ class EmailList(tk.Frame):
                 index=index+1
 
         #--entry--#
-        entry = tk.Entry(self,font="Helvetica 28")
+        entry = tk.Entry(self,font="Helvetica 25")
         entry.place(height=40,width=440,relx=.05,rely=.02)
 
         #--Buttons--#

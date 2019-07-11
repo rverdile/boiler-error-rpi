@@ -150,25 +150,28 @@ def sendText(error_list):
 	now = datetime.datetime.now()
 
 	#sending text
-	for i in range(len(phone_numbers)):
+	if phone_numbers:
+		for i in range(len(phone_numbers)):
 
-		try:
-			message = client.messages \
-    		.create(
-         		body= getAlertMessage(error_list),
-         		from_ = "",
-         		to=phone_numbers[i]
-     		)
+			try:
+				message = client.messages \
+					.create(
+					body= getAlertMessage(error_list),
+					from_ = "",
+					to=phone_numbers[i]
+					)
      		
-			return [1,1,1,1]
+				return [1,1,1,1]
      		     		
-		except:
-			f = open('/home/pi/Alert_System/error.txt','a')
-			f.write("Cannot send text...."+str(now)+'\n') #--write time of error to text file
-			f.close()
-			print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
-			return [0,0,0,0]
+			except:
+				f = open('/home/pi/Alert_System/error.txt','a')
+				f.write("Cannot send text...."+str(now)+'\n') #--write time of error to text file
+				f.close()
+				print("Circuit is open. Cannot send text. May be disconnected from WiFi") #--error
+				return [0,0,0,0]
 
+	else:
+		return [0,0,0,0]
 #///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////#
 #--Functions for dealing with emails and emailing.--#
 
